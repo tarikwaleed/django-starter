@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  nginx:
+    build: ./nginx
+    image: nginx
+    container_name: "nginx_container"
+    ports:
+      - 80:80
+    depends_on:
+      - app
+  app:
+    image: app
+    build:
+      context: ./app
+    container_name: "app_container"
+    ports:
+      - 8001:8001
+    command: sh -c "cd /app/src && gunicorn --reload core.wsgi --bind 0.0.0.0:8001 --workers 4 --threads 4 --timeout 120"
+    env_file:
+      - "./app/.env"
+    depends_on:
+      - postgres
+    volumes:
+      - ./app/src:/app/src
+      - ./app/src/applogs:/applogs
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: "postgres_container"
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=first_django_app_db
+    volumes:
+      - /usr/first_django_app_db/data/postgresql:/var/lib/postgresql/data
