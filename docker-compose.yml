@@ -23,7 +23,7 @@ services:
       - postgres
     volumes:
       - ./app/src:/app/src
-      - ./app/src/applogs:/applogs
+      - ./app/src/logs:/logs
 
   postgres:
     image: postgres:16-alpine
