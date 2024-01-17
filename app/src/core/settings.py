@@ -121,11 +121,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 
+# the url to access static files, you can name it whatever you want
+# http://localhost/static/*
 STATIC_URL = "static/"
+# the locations where you store static files like css,js
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-# output static files
+# the location whre collectstatic will dump output files
+# and there is where the web server will serve files
 STATIC_ROOT = BASE_DIR.parent / "local-cdn" / "static"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
