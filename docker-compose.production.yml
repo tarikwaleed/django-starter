@@ -9,6 +9,9 @@ services:
       - 80:80
     depends_on:
       - app
+
+    volumes:
+      - ./app/local-cdn:/app/local-cdn
   app:
     image: app
     build:
@@ -26,7 +29,7 @@ services:
     volumes:
       # - ./app/src:/app/src
       - ./app/src/logs:/logs
-      # - ./app/local-cdn:/app/local-cdn
+      - ./app/local-cdn:/app/local-cdn
 
   postgres:
     image: postgres:16-alpine
