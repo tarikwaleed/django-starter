@@ -1,4 +1,8 @@
-
+**todo**
+- [ ] change `.env.app.example` files to `.env.app.production.example` and `.env.app.development.example`
+- [ ] copy `.env` files
+**to run the project**
+- [ ] 
 **How to log exceptions**
 
 ```python
