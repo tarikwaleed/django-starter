@@ -17,6 +17,7 @@ RUN \
 
 
 
+
 COPY ./docker-entrypoint.development.sh .
 RUN sed -i 's/\r$//g' /app/docker-entrypoint.development.sh
 RUN chmod +x /app/docker-entrypoint.development.sh
