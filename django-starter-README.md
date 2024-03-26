@@ -28,7 +28,7 @@ docker compose -f docker-compose.production.yml exec app python ./src/manage.py 
 ```python
 import traceback
 from datetime import datetime
-with open("/applogs/exceptions.log", "a") as file:
+with open("/logs/exceptions.log", "a") as file:
     file.write(
         f"an error happened at {datetime.datetime.now()}\n"
     )
