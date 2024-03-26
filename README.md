@@ -1,8 +1,28 @@
-**todo**
-- [ ] change `.env.app.example` files to `.env.app.production.example` and `.env.app.development.example`
+**To run the project on new server**
+
 - [ ] copy `.env` files
-**to run the project**
-- [ ] 
+
+```shell
+cp .env.app.example .env.app.production
+cp .env.postgres.example .env.postgres.production
+```
+- [ ] add new machine's ip address to `.env` file
+```shell
+ALLOWED_HOSTS=localhost app 127.0.0.1 put_ip_here [::1]
+```
+
+- [ ] spin up the containers
+```shell
+docker compose -f docker-compose.production.yml up --build
+```
+- [ ] run
+```shell
+
+docker compose -f docker-compose.production.yml exec app python ./src/manage.py collectstatic --no-input
+docker compose -f docker-compose.production.yml exec app python ./src/manage.py migrate --no-input
+```
+
+
 **How to log exceptions**
 
 ```python
