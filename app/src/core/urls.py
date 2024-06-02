@@ -5,10 +5,11 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path(route="", view=views.test_view, name="test-view"),
     path(route="admin/", view=admin.site.urls),
+    path("api/simpleapi", include("simpleapi.urls")),
 ]
 
 if settings.DEBUG:
-  from django.conf.urls.static import static
-  urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    from django.conf.urls.static import static
+
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

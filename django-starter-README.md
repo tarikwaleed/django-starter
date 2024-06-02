@@ -1,4 +1,18 @@
-**To run the project on new server**
+**To run development version**
+- set environment variable with the name of the project, this will be used in `settings.py`
+```
+```shell
+if os.getenv("MYAPP_ENVIRONMENT") == "dev":
+    from dotenv import find_dotenv, load_dotenv
+
+    load_dotenv(find_dotenv(), override=True)
+```
+
+- to set env variable using fish shell
+```shell
+set -Ux MYAPP_ENVIRONMENT dev
+
+**To run the Dockerized version **
 
 - [ ] copy `.env` files
 
