@@ -154,3 +154,37 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # put the ip of your front-end here
 CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "https://myapp.vercel.app"]
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": f"{BASE_DIR}/logs/simpleapi.log",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+        "simpleapi.views": {
+            "handlers": ["console", "file"],
+            "level": "DEBUG",
+        },
+    },
+}
