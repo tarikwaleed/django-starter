@@ -1,3 +1,4 @@
+# just added this line
 """
 Django settings for core project.
 
