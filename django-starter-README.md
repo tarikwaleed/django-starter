@@ -1,6 +1,11 @@
 **To run development version**
-- set environment variable with the name of the project, this will be used in `settings.py`
+- install dependencies
+```shell
+pipenv shell
+pipenv instll --dev
 ```
+
+- set environment variable with the name of the project, this will be used in `settings.py`
 ```shell
 if os.getenv("MYAPP_ENVIRONMENT") == "dev":
     from dotenv import find_dotenv, load_dotenv
@@ -11,6 +16,21 @@ if os.getenv("MYAPP_ENVIRONMENT") == "dev":
 - to set env variable using fish shell
 ```shell
 set -Ux MYAPP_ENVIRONMENT dev
+```
+- navigate to `/app/src` and run
+```
+drs
+```
+**OR**
+```shell
+python manage.py runserver
+```
+- in your browser, visit
+```shell
+http://localhost:8000/api/simpleapi
+```
+
+
 
 **To run the Dockerized version **
 
