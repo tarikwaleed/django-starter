@@ -1,9 +1,8 @@
-just added this
 **To run development version**
 - install dependencies
 ```shell
 pipenv shell
-pipenv instll --dev
+pipenv install --dev
 ```
 
 - set environment variable with the name of the project, this will be used in `settings.py`
@@ -18,6 +17,7 @@ if os.getenv("MYAPP_ENVIRONMENT") == "dev":
 ```shell
 set -Ux MYAPP_ENVIRONMENT dev
 ```
+- make sure `.env` file is in place
 - navigate to `/app/src` and run
 ```
 drs
@@ -30,7 +30,6 @@ python manage.py runserver
 ```shell
 http://localhost:8000/api/simpleapi
 ```
-
 
 
 **To run the Dockerized version **
