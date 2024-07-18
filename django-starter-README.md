@@ -1,4 +1,4 @@
-**To run development version**
+## To run development version
 - install dependencies
 ```shell
 pipenv shell
@@ -32,7 +32,7 @@ http://localhost:8000/api/simpleapi
 ```
 
 
-**To run the Dockerized version **
+## To run the Dockerized version
 
 - [ ] copy `.env` files
 
