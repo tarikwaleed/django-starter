@@ -1,4 +1,4 @@
-FROM python:3.10-slim as base
+FROM python as base
 
 # Setup env
 ENV LANG C.UTF-8
