@@ -5,10 +5,11 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-extensions = "*"
 django-cors-headers = "*"
 djangorestframework = "*"
 gunicorn = "*"
-django-extensions = "*"
+requests = "*"
 
 [dev-packages]
 black = "*"

@@ -20,6 +20,7 @@ if os.getenv("MONHNA_ENVIRONMENT") == "dev":
     load_dotenv(find_dotenv(), override=True)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+LOG_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     "core",
     "rest_framework",
     "django_extensions",
+    "shared.apps.SharedConfig",
 ]
 
 MIDDLEWARE = [
@@ -172,10 +174,10 @@ LOGGING = {
             "class": "logging.StreamHandler",
             "formatter": "verbose",
         },
-        "file": {
+        "simpleapi": {
             "level": "DEBUG",
             "class": "logging.FileHandler",
-            "filename": f"{BASE_DIR}/logs/simpleapi.log",
+            "filename": f"{LOG_DIR}/logs/simpleapi.log",
             "formatter": "verbose",
         },
     },
@@ -185,7 +187,7 @@ LOGGING = {
             "level": "INFO",
         },
         "simpleapi.views": {
-            "handlers": ["console", "file"],
+            "handlers": ["console", "simpleapi"],
             "level": "DEBUG",
         },
     },
