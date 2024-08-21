@@ -180,6 +180,12 @@ LOGGING = {
             "filename": f"{LOG_DIR}/logs/simpleapi.log",
             "formatter": "verbose",
         },
+        "exceptions": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": f"{LOG_DIR}/logs/exceptions.log",
+            "formatter": "verbose",
+        },
     },
     "loggers": {
         "django": {
@@ -188,6 +194,10 @@ LOGGING = {
         },
         "simpleapi.views": {
             "handlers": ["console", "simpleapi"],
+            "level": "DEBUG",
+        },
+        "exceptions": {
+            "handlers": ["console", "exceptions"],
             "level": "DEBUG",
         },
     },
